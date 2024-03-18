@@ -2,6 +2,9 @@ import bcrypt from 'bcrypt'
 import User from '../Models/User.Schema.js';
 import { generateRandomString } from '../Utils/RandomString.js';
 import { sendMail } from '../Utils/SendMail.js';
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 export const RegisterUser = async (req, res) => {
     try {
