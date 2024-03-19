@@ -37,7 +37,7 @@ export const LoginUser = async (req, res) => {
         if (!passwordMatch) {
             return res.status(401).json({ message: "Invalid Password" })
         }
-        res.status(200).json({ message: "Login Successfull" })
+        res.status(200).json({ message: "Login Successfull",data:findUser })
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: "Login Failed" })
@@ -88,10 +88,11 @@ export const forgotPassword = async (req, res) => {
             
             // status Send
             res.status(201).send({
-                message:"Reset Link Sended to your Mail-Id"
+                message:"Reset link sended to your mail-id"
             });
         }else{
-            res.status(400).send({message:`User ${req.body.email} does not exits`})
+            // res.status(400).send({message:`User ${req.body.email} does not exits`})
+            res.status(400).send({message:`User does not exits`})
         }
     } catch (error) {
         res.status(500).send({
